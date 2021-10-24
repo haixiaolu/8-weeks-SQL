@@ -200,3 +200,37 @@ src='https://dbdiagram.io/embed/5fe1cb6e9a6c525a03bbf839'>
   **The second category insight text output uses the fields in a similar way**
 
   *You've watched {`rental_count`}{`category_name`} films making up {`category_percentage`}% of your entire viewing history!*
+
+## Top Actor Information
+
+- move focus onto the top actors for each customer. We also need the `rental_count` as well as the `first_name` and full `actor_name` for corresponding actor insight. 
+
+- The text output will use the fields as follows:
+
+  *You've watched <`rental_count`> films featuring <`actor_name`>! Here are some other films <`first_name`> stars in that might interest you!*
+
+## Film Recommendations
+
+- The next component of the final SQL output table are the individual film recommendations for each category and top actor.
+- Since our final output seems to have a single row per customer - it makes sense for one of our interim outputs to also be in the same wide format
+
+### Category Recommendations
+
+- `customer_id` is followed by 6 columns with the first 3 related to the top category and the last 3 for the second category.
+
+- we need to remember that the customer must not have seen any of these films before and that the film recommendations are ranked by total popularity across all customers. 
+
+### Actor Recommendations
+
+- Just like the category recommendations we will be required to generate the top 3 films by their favourite actor
+  - An extra reminder that we need to also remove films which customers have already seen before - or if they've already been recommended in the category recommendations
+
+## Identifying Key Columns
+
+- How are we going to generate all of these SQL table output from our raw data?
+
+  - One step is to identify just exactly where our data comes from so we can trace back our data to help us combine multiple tables for our analysis
+
+    <img src="/Users/haixiaolu/Library/Application Support/typora-user-images/Screen Shot 2021-10-23 at 9.02.51 PM.png" alt="Screen Shot 2021-10-23 at 9.02.51 PM" style="zoom:50%;" />
+
+    
